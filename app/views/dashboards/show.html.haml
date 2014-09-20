@@ -15,7 +15,7 @@
             %ul.nav.nav-list
               - Stage.where(:project_id => project.id).each do |stage|
                 %li
-                  = stage.name
+                  = link_to stage.name
 
   / Page content
   #page-content-wrapper
