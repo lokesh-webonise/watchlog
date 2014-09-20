@@ -1,0 +1,95 @@
+$dark: #333
+$white: #ffffff
+$whiteGray: #e2e2e2
+$blue: #00c0ff
+$orange: #faa732
+body
+  padding: 0
+ul
+  margin: 0
+  li
+    list-style: none
+
+//Main Navigation Starts
+.mainNavSec
+  background-color: $blue
+  position: fixed
+  width: 100%
+  left: 0
+  top: 0
+  nav
+    height: 58px
+    padding-top: 2px
+    .logo
+      float: left
+      width: 55px
+      height: 55px
+      img
+        max-width: 100%
+    .title
+      float: left
+      font-size: 18px
+      color: $white
+      margin: 15px 0 0 15px
+
+// Side bar Starts
+.mainContainer
+  margin-top: 60px
+  width: 100%
+  overflow: hidden
+.sideBarWidth
+  width: 320px
+.sideBar
+  background-color: $blue
+  width: 0
+  float: left
+  overflow: hidden
+.sideBarContainer
+  width: 100%
+  .projectList
+    padding: 5px 10px
+    background-color: $whiteGray
+    margin-bottom: 10px
+    font-size: 18px
+    font-weight: bold
+    color: $orange
+  >ul
+    margin: 0
+    padding: 0
+    >li
+      margin-bottom: 5px
+      display: block
+      >a
+        display: block
+        background-color: $whiteGray
+        padding: 5px 10px
+        text-transform: capitalize
+        font-size: 14px
+        color: $dark
+        &:hover
+          text-decoration: none
+          color: $orange
+      >ul
+        display: none
+        >li
+          margin-bottom: 2px
+          display: block
+          >a
+            display: block
+            background-color: $dark
+            padding: 5px 10px
+            text-transform: capitalize
+            font-size: 13px
+            color: $white
+            &:hover
+              text-decoration: none
+              color: $blue
+
+// Log section
+.logSection
+  border: 1px solid red
+  float: left
+  height: 600px
+  width: 100%
+.logContainer
+  content: 'dsadsajdsadhsajdhasj'

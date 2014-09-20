@@ -1,0 +1,44 @@
+%section.mainNavSec
+  .container-fluid
+    %nav
+      .logo
+        %img{:src=>'/assets/logo.png',:alt=>'logo'}
+      .title
+        Watch Log
+.clearfix.mainContainer
+  %section.sideBar
+    .sideBarContainer
+      .projectList
+        Project List
+      %ul.clearfix
+        %li
+          %a.projectName{:href =>"javascript:void(0)"} brown
+          %ul
+            %li
+              %a{:href =>"javascript:void(0)"} stage
+            %li
+              %a{:href =>"javascript:void(0)"} test
+            %li
+              %a{:href =>"javascript:void(0)"} production
+        %li
+          %a.projectName{:href =>"javascript:void(0)"} brown
+          %ul
+            %li
+              %a{:href =>"javascript:void(0)"} stage
+            %li
+              %a{:href =>"javascript:void(0)"} test
+            %li
+              %a{:href =>"javascript:void(0)"} production
+        %li
+          %a.projectName{:href =>"javascript:void(0)"} brown
+          %ul
+            %li
+              %a{:href =>"javascript:void(0)"} stage
+            %li
+              %a{:href =>"javascript:void(0)"} test
+            %li
+              %a{:href =>"javascript:void(0)"} production
+  %section.logSection
+    .logContainer
+      .logTypeActionCont
+        %a.btn.projectListBar{:href=>"javascript:void(0)"} Project List
