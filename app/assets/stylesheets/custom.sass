@@ -1,0 +1,152 @@
+@import url(/assets/fonts.css)
+#sidenav01
+  >li
+    >a
+      color: #000000
+      font-size: 16px
+  .nav-list
+    >li
+      a
+        padding-left: 25px
+        color: #000000
+        font-size: 15px
+#wrapper
+  padding-left: 250px
+  transition: all 0.4s ease 0s
+#home
+  color: rgba(24, 24, 24, 0.68)
+  .btn-menu
+    color: #28a4c9
+
+#sidebar-wrapper
+  margin-left: -250px
+  left: 250px
+  width: 250px
+  background: rgba(2, 255, 39, 0.02)
+  position: fixed
+  height: 100%
+  overflow-y: auto
+  z-index: 1000
+  transition: all 0.4s ease 0s
+  .logo
+    text-align: center
+    margin: 10px 0 20px 0
+    img
+      width: 75px
+      max-width: 100%
+  h4
+    color: #181818
+    margin: 0 0 15px 17px
+  ul
+    width: 100%
+    li
+      width: 100%
+    .caret
+      margin-top: 8px
+#wrapper.active
+  padding-left: 0
+  #sidebar-wrapper
+    left: 0
+.selectLogType
+  margin-left: 30px
+#page-content-wrapper
+  width: 100%
+  overflow: hidden
+  .jumbotron
+    padding-top: 10px
+    padding-bottom: 0
+    height: 100px
+    margin-bottom: 0
+.sidebar-nav
+  position: absolute
+  top: 0
+  width: 250px
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    line-height: 40px
+    text-indent: 20px
+    a
+      color: #999999
+      display: block
+      text-decoration: none
+      padding-left: 60px
+      span:before
+        position: absolute
+        left: 0
+        color: #41484c
+        text-align: center
+        width: 20px
+        line-height: 18px
+      &:hover
+        color: #fff
+        background: rgba(255, 255, 255, 0.2)
+        text-decoration: none
+    &.active
+      color: #fff
+      background: rgba(255, 255, 255, 0.2)
+      text-decoration: none
+    a
+      &:active, &:focus
+        text-decoration: none
+  > .sidebar-brand
+    height: 65px
+    line-height: 60px
+    font-size: 18px
+    a
+      color: #999999
+      &:hover
+        color: #fff
+        background: none
+
+.content-header
+  height: 65px
+  line-height: 65px
+  h1
+    margin: 0
+    margin-left: 20px
+    line-height: 65px
+    display: inline-block
+
+#menu-toggle
+  text-decoration: none
+
+.btn-menu
+  color: #000
+
+.inset
+  padding: 20px
+
+@media (max-width: 767px)
+  #wrapper
+    padding-left: 0
+  #sidebar-wrapper
+    left: 0
+  #wrapper.active
+    position: relative
+    left: 250px
+    #sidebar-wrapper
+      left: 250px
+      width: 250px
+      transition: all 0.4s ease 0s
+  #menu-toggle
+    display: inline-block
+  .inset
+    padding: 15px
+.logContainer
+  font-family: 'source_code_proregular'
+  background-color: #000000
+  height: 400px
+  overflow: hidden
+  color: #34e727
+  font-size: 14px
+  .logs
+    padding: 20px 40px
+    width: 99%
+    height: 100%
+    overflow: hidden
+    overflow-y: scroll
+    box-sizing: border-box
+.actionBtnCont
+  margin-left: 30px

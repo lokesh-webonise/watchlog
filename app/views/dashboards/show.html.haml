@@ -1,0 +1,61 @@
+#wrapper
+  / Sidebar
+  #sidebar-wrapper
+    .logo
+      %img{:src=>'/assets/logo.png', :alt=>'logo'}
+    %h4
+      Project List
+    %ul#sidenav01.nav.navbar-nav
+      - @projects.each_with_index do |project, index|
+        %li
+          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo#{index}", "data-toggle" => "collapse", :href => "#"}
+            = project.name
+            %span.caret.pull-right
+          .collapse{:id => "toggleDemo#{index}", :style => "height: 0px;"}
+            %ul.nav.nav-list
+              - Stage.where(:project_id => project.id).each do |stage|
+                %li
+                  = link_to stage.name
+
+  / Page content
+  #page-content-wrapper
+    .content-header
+      %h1#home
+        %a#menu-toggle.glyphicon.glyphicon-align-justify.btn-menu.toggle.menu-toggleWrap{:href => "#"}
+          %i.fa.fa-bars
+        Watch Log
+    .page-content{"data-spy" => "scroll", "data-target" => "#spy"}
+      .row
+        .jumbotron.clearfix
+          .projectPath.pull-left
+            %h4 You are here
+            #bc1.btn-group.btn-breadcrumb
+              %a.btn.btn-default{:href => "#"}
+                %div label 1
+              %a.btn.btn-default{:href => "#"}
+                %div label 2
+              %a.btn.btn-default.active{:href => "#"}
+                %div label 3
+          .selectLogType.pull-left
+            %h4 Select Log Type
+            .dropdown
+              %button#dropdownMenu1.btn.btn-info.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+                Dropdown
+                %span.caret
+              %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
+                %li{:role => "presentation"}
+                  %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Action
+                %li{:role => "presentation"}
+                  %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Another action
+                %li{:role => "presentation"}
+                  %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Something else here
+          .actionBtnCont.pull-left
+            %h4 Action
+            .btn-group
+              %button.btn.btn-default.btn-info#startLog{:type => "button"} Start
+              %button.btn.btn-default.btn-danger#stopLog{:type => "button"} Stop
+              %button.btn.btn-default{:type => "button"} Download
+      .row
+        .logContainer
+          .logs
+            %p#logDesc

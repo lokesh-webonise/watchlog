@@ -1,0 +1,22 @@
+<h1>All projects</h1>
+<table class="sortable" border="1">
+    <tr>
+      <th width="30%">Project</th>
+      <th width="70%">Stages</th>
+    </tr>
+    <% for project in @projects %>
+      <tr class="<%= cycle :even, :odd, :name => 'projects'  %>">
+        <td nowrap><%= h(project.name) %></td>
+        <td>
+          <table>
+            <% stages = Stage.where(:project_id => project.id) %>
+            <% for stage in stages %>
+            <tr>
+              <td><%= h(stage.name) %></td>
+            </tr>
+            <% end %>
+          </table>
+        </td>
+      </tr>
+    <% end %>
+  </table>
