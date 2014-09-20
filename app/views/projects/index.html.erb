@@ -5,12 +5,23 @@
       <th width="70%">Projects</th>
     </tr>
     <% for user in @users %>
-      <tr class="<%= cycle :even, :odd, :name => 'users'  %>" style="border-bottom: 2px solid #000;">
+      <tr class="<%= cycle :even, :odd, :name => 'users'  %>">
         <td nowrap><%= h(user.login) %></td>
         <td>
-          <table>
+          <table border="1">
             <% for project in user.projects %>
-            <tr><td><%= h(project.name) %></td></tr>
+            <tr>
+              <td><%= h(project.name) %></td>
+              <td>
+                <table>
+                  <% for stage in user.stages %>
+                    <% if stage.project_id == project.id %>
+                      <tr><td><%= h(stage.name) %></td></tr>
+                    <% end %>
+                  <% end %>
+                </table>
+              </td>
+            </tr>
             <% end %>
           </table>
         </td>

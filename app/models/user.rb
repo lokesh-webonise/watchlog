@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   alias_attribute :password_salt, :salt
 
   has_and_belongs_to_many :projects
+  has_and_belongs_to_many :stages
 end
