@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: [:index]
+  resources :users, only: [:index] do
+    collection do
+      get :projects
+    end
+  end
   resources :projects, only: [:index]
 
   get 'dashboards/show'

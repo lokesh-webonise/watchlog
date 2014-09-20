@@ -1,26 +1,18 @@
-<h1>All users projects</h1>
+<h1>All projects</h1>
 <table class="sortable" border="1">
     <tr>
-      <th width="30%">Login</th>
-      <th width="70%">Projects</th>
+      <th width="30%">Project</th>
+      <th width="70%">Stages</th>
     </tr>
-    <% for user in @users %>
-      <tr class="<%= cycle :even, :odd, :name => 'users'  %>">
-        <td nowrap><%= h(user.login) %></td>
+    <% for project in @projects %>
+      <tr class="<%= cycle :even, :odd, :name => 'projects'  %>">
+        <td nowrap><%= h(project.name) %></td>
         <td>
-          <table border="1">
-            <% for project in user.projects %>
+          <table>
+            <% stages = Stage.where(:project_id => project.id) %>
+            <% for stage in stages %>
             <tr>
-              <td><%= h(project.name) %></td>
-              <td>
-                <table>
-                  <% for stage in user.stages %>
-                    <% if stage.project_id == project.id %>
-                      <tr><td><%= h(stage.name) %></td></tr>
-                    <% end %>
-                  <% end %>
-                </table>
-              </td>
+              <td><%= h(stage.name) %></td>
             </tr>
             <% end %>
           </table>

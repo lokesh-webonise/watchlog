@@ -4,4 +4,8 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
+
+  def projects
+    @users = User.all
+  end
 end
