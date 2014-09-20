@@ -1,0 +1,19 @@
+<h1>All users projects</h1>
+<table class="sortable" border="1">
+    <tr>
+      <th width="30%">Login</th>
+      <th width="70%">Projects</th>
+    </tr>
+    <% for user in @users %>
+      <tr class="<%= cycle :even, :odd, :name => 'users'  %>" style="border-bottom: 2px solid #000;">
+        <td nowrap><%= h(user.login) %></td>
+        <td>
+          <table>
+            <% for project in user.projects %>
+            <tr><td><%= h(project.name) %></td></tr>
+            <% end %>
+          </table>
+        </td>
+      </tr>
+    <% end %>
+  </table>
