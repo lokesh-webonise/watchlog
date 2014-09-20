@@ -1,0 +1,13 @@
+<h1>All users</h1>
+<table class="sortable">
+    <tr>
+      <th width="30%">Login</th>
+      <th width="70%">Email</th>
+    </tr>
+    <% for user in @users %>
+      <tr class="<%= cycle :even, :odd, :name => 'users'  %>">
+        <td nowrap><%= h(user.login) %></td>
+        <td><%=h user.email %></td>
+      </tr>
+    <% end %>
+  </table>
