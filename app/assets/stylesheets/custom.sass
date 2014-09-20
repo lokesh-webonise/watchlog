@@ -1,95 +1,130 @@
-$dark: #333
-$white: #ffffff
-$whiteGray: #e2e2e2
-$blue: #00c0ff
-$orange: #faa732
-body
-  padding: 0
-ul
-  margin: 0
-  li
-    list-style: none
+#wrapper
+  padding-left: 250px
+  transition: all 0.4s ease 0s
+#home
+  color: rgba(42, 255, 134, 0.68)
+  .btn-menu
+    color: rgba(42, 255, 134, 0.68)
 
-//Main Navigation Starts
-.mainNavSec
-  background-color: $blue
+#sidebar-wrapper
+  margin-left: -250px
+  left: 250px
+  width: 250px
+  background: rgb(153, 255, 146)
   position: fixed
+  height: 100%
+  overflow-y: auto
+  z-index: 1000
+  transition: all 0.4s ease 0s
+  .logo
+    text-align: center
+    margin: 10px 0 20px 0
+    img
+      width: 75px
+      max-width: 100%
+  h4
+    color: #181818
+    margin: 0 0 15px 10px
+  ul
+    width: 100%
+    li
+      width: 100%
+    .caret
+      margin-top: 8px
+#wrapper.active
+  padding-left: 0
+  #sidebar-wrapper
+    left: 0
+.selectLogType
+  margin-left: 30px
+#page-content-wrapper
   width: 100%
-  left: 0
+  overflow: hidden
+  .jumbotron
+    padding-top: 10px
+    padding-bottom: 0
+    height: 100px
+    margin-bottom: 0
+.sidebar-nav
+  position: absolute
   top: 0
-  nav
-    height: 58px
-    padding-top: 2px
-    .logo
-      float: left
-      width: 55px
-      height: 55px
-      img
-        max-width: 100%
-    .title
-      float: left
-      font-size: 18px
-      color: $white
-      margin: 15px 0 0 15px
-
-// Side bar Starts
-.mainContainer
-  margin-top: 60px
-  width: 100%
-  overflow: hidden
-.sideBarWidth
-  width: 320px
-.sideBar
-  background-color: $blue
-  width: 0
-  float: left
-  overflow: hidden
-.sideBarContainer
-  width: 100%
-  .projectList
-    padding: 5px 10px
-    background-color: $whiteGray
-    margin-bottom: 10px
-    font-size: 18px
-    font-weight: bold
-    color: $orange
-  >ul
-    margin: 0
-    padding: 0
-    >li
-      margin-bottom: 5px
+  width: 250px
+  list-style: none
+  margin: 0
+  padding: 0
+  li
+    line-height: 40px
+    text-indent: 20px
+    a
+      color: #999999
       display: block
-      >a
-        display: block
-        background-color: $whiteGray
-        padding: 5px 10px
-        text-transform: capitalize
-        font-size: 14px
-        color: $dark
-        &:hover
-          text-decoration: none
-          color: $orange
-      >ul
-        display: none
-        >li
-          margin-bottom: 2px
-          display: block
-          >a
-            display: block
-            background-color: $dark
-            padding: 5px 10px
-            text-transform: capitalize
-            font-size: 13px
-            color: $white
-            &:hover
-              text-decoration: none
-              color: $blue
+      text-decoration: none
+      padding-left: 60px
+      span:before
+        position: absolute
+        left: 0
+        color: #41484c
+        text-align: center
+        width: 20px
+        line-height: 18px
+      &:hover
+        color: #fff
+        background: rgba(255, 255, 255, 0.2)
+        text-decoration: none
+    &.active
+      color: #fff
+      background: rgba(255, 255, 255, 0.2)
+      text-decoration: none
+    a
+      &:active, &:focus
+        text-decoration: none
+  > .sidebar-brand
+    height: 65px
+    line-height: 60px
+    font-size: 18px
+    a
+      color: #999999
+      &:hover
+        color: #fff
+        background: none
 
-// Log section
-.logSection
-  border: 1px solid red
-  float: left
-  height: 600px
-  width: 100%
+.content-header
+  height: 65px
+  line-height: 65px
+  h1
+    margin: 0
+    margin-left: 20px
+    line-height: 65px
+    display: inline-block
+
+#menu-toggle
+  text-decoration: none
+
+.btn-menu
+  color: #000
+
+.inset
+  padding: 20px
+
+@media (max-width: 767px)
+  #wrapper
+    padding-left: 0
+  #sidebar-wrapper
+    left: 0
+  #wrapper.active
+    position: relative
+    left: 250px
+    #sidebar-wrapper
+      left: 250px
+      width: 250px
+      transition: all 0.4s ease 0s
+  #menu-toggle
+    display: inline-block
+  .inset
+    padding: 15px
 .logContainer
-  content: 'dsadsajdsadhsajdhasj'
+  background-color: #000000
+  height: 400px
+  overflow: hidden
+.actionBtnCont
+  margin-left: 30px

@@ -1,29 +1,40 @@
 /**
  * Created by Sachidananda on 20-Sep-14.
  */
-function projectListBar(){
-    $('.projectListBar').on('click',function(){
-        $('.sideBar').animate(width, 320)
-    })
-}
 function logContainer(){
-    var screenWidth= $(window).width();
-    var sideBar = $('.sideBar').width()
-    $(".logSection").css({'max-width': screenWidth-sideBar})
-}
-function listSlideManage(){
-    $(".projectName").on('click',function(){
-        $(".projectName").next('ul').slideUp();
-        if( $(this).next('ul').css('display') == 'none') {
-            $(this).next('ul').slideDown();
-        }
-    })
-}
+    var contHead=$('.content-header').height();
+    var jumbTurn=$('.page-content .jumbotron').height();
+    var winHeight=$(window).height();
+    $('.logContainer').css({'height': winHeight-(contHead+jumbTurn+10)});
 
+}
 $(document).ready(function(){
-    listSlideManage();
-    logContainer();
     $(window).resize(function(){
-       logContainer();
+        logContainer();
+    })
+    logContainer();
+    /*Menu-toggle*/
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
     });
-});
+
+    /*Scroll Spy*/
+    $('body').scrollspy({ target: '#spy', offset:80});
+
+    /*Smooth link animation*/
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+    $('.dropdown-toggle').dropdown();
+})
