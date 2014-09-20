@@ -8,6 +8,7 @@ $(document).ready(function(){
     source.addEventListener('logs.all', function(event) {
       message = JSON.parse(event.data);
       $('#logDesc').append("<pre><code>" + message + "</code></pre>")
+      auto_scroll();
     });
 
     source.addEventListener('error', function(event) {
@@ -17,6 +18,11 @@ $(document).ready(function(){
         console.log('Connection error... Auto reconnect')
       }
     });
+  }
+
+  function auto_scroll() {
+    var objDiv = document.getElementById("logDesc");
+    objDiv.scrollTop = objDiv.scrollHeight;
   }
 
   function stopStreaming(){

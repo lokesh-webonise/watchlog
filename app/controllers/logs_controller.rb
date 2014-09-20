@@ -15,7 +15,7 @@ class LogsController < ActionController::Base
 
   def show
     logger.info "Stream start"
-    system("sshfs -p 9902 deploy@test-mtdc.weboapps.com:/var/www/test-mtdc.weboapps.com/shared/log ~/test-mtdc")
+    # system("sshfs -p 9902 deploy@test-mtdc.weboapps.com:/var/www/test-mtdc.weboapps.com/shared/log ~/test-mtdc")
     file = LogFile.find_path(file_name).tail
     response.headers['Content-Type'] = 'text/event-stream'
     first_line = true
@@ -36,7 +36,7 @@ class LogsController < ActionController::Base
     logger.info "Stream closed (Normaly)"
   ensure
     logger.info
-    system("sudo fusermount -u ~/test-mtdc")
+    # system("sudo fusermount -u ~/test-mtdc")
     file.close if file
     response.stream.close
   end
