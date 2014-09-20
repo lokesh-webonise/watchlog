@@ -17,4 +17,3 @@
 .idea
 config/database.yml
 webistrano_production.sql
-.gitignore

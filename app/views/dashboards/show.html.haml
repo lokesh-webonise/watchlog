@@ -6,102 +6,16 @@
     %h4
       Project List
     %ul#sidenav01.nav.navbar-nav
-      %li
-        %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo1", "data-toggle" => "collapse", :href => "#"}
-          Submenu 1
-          %span.caret.pull-right
-        #toggleDemo1.collapse{:style => "height: 0px;"}
-          %ul.nav.nav-list
-            %li
-              %a{:href => "#"} Submenu1.1
-            %li
-              %a{:href => "#"} Submenu1.2
-            %li
-              %a{:href => "#"} Submenu1.3
+      - @projects.each_with_index do |project, index|
         %li
-          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo2", "data-toggle" => "collapse", :href => "#"}
-            Submenu 1
+          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo#{index}", "data-toggle" => "collapse", :href => "#"}
+            = project.name
             %span.caret.pull-right
-          #toggleDemo2.collapse{:style => "height: 0px;"}
+          .collapse{:id => "toggleDemo#{index}", :style => "height: 0px;"}
             %ul.nav.nav-list
-              %li
-                %a{:href => "#"} Submenu1.1
-              %li
-                %a{:href => "#"} Submenu1.2
-              %li
-                %a{:href => "#"} Submenu1.3
-        %li
-          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo3", "data-toggle" => "collapse", :href => "#"}
-            Submenu 1
-            %span.caret.pull-right
-          #toggleDemo3.collapse{:style => "height: 0px;"}
-            %ul.nav.nav-list
-              %li
-                %a{:href => "#"} Submenu1.1
-              %li
-                %a{:href => "#"} Submenu1.2
-              %li
-                %a{:href => "#"} Submenu1.3
-        %li
-          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo4", "data-toggle" => "collapse", :href => "#"}
-            Submenu 1
-            %span.caret.pull-right
-          #toggleDemo4.collapse{:style => "height: 0px;"}
-            %ul.nav.nav-list
-              %li
-                %a{:href => "#"} Submenu1.1
-              %li
-                %a{:href => "#"} Submenu1.2
-              %li
-                %a{:href => "#"} Submenu1.3
-        %li
-          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo5", "data-toggle" => "collapse", :href => "#"}
-            Submenu 1
-            %span.caret.pull-right
-          #toggleDemo5.collapse{:style => "height: 0px;"}
-            %ul.nav.nav-list
-              %li
-                %a{:href => "#"} Submenu1.1
-              %li
-                %a{:href => "#"} Submenu1.2
-              %li
-                %a{:href => "#"} Submenu1.3
-        %li
-          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo6", "data-toggle" => "collapse", :href => "#"}
-            Submenu 1
-            %span.caret.pull-right
-          #toggleDemo6.collapse{:style => "height: 0px;"}
-            %ul.nav.nav-list
-              %li
-                %a{:href => "#"} Submenu1.1
-              %li
-                %a{:href => "#"} Submenu1.2
-              %li
-                %a{:href => "#"} Submenu1.3
-        %li
-          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo7", "data-toggle" => "collapse", :href => "#"}
-            Submenu 1
-            %span.caret.pull-right
-          #toggleDemo7.collapse{:style => "height: 0px;"}
-            %ul.nav.nav-list
-              %li
-                %a{:href => "#"} Submenu1.1
-              %li
-                %a{:href => "#"} Submenu1.2
-              %li
-                %a{:href => "#"} Submenu1.3
-        %li
-          %a.collapsed{"data-parent" => "#sidenav01", "data-target" => "#toggleDemo8", "data-toggle" => "collapse", :href => "#"}
-            Submenu 1
-            %span.caret.pull-right
-          #toggleDemo8.collapse{:style => "height: 0px;"}
-            %ul.nav.nav-list
-              %li
-                %a{:href => "#"} Submenu1.1
-              %li
-                %a{:href => "#"} Submenu1.2
-              %li
-                %a{:href => "#"} Submenu1.3
+              - Stage.where(:project_id => project.id).each do |stage|
+                %li
+                  = stage.name
 
   / Page content
   #page-content-wrapper
