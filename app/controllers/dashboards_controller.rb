@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    @dashboard = "This is dashboard show page."
+    @projects = Project.all
   end
 end
