@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     end
   end
   resources :projects, only: [:index]
-  resources :logs, only: :show
+  resources :logs do
+    collection do
+      get 'fetch'
+      get 'append'
+    end
+  end
   resources :log_files, only: :index
 
   get 'dashboards/show'

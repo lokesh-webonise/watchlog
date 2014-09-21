@@ -1,5 +1,7 @@
 class LogsController < ActionController::Base
   MAX_READ = 1000
+  HOST = 'deploy@test-mtdc.weboapps.com:9902'
+  PATH = '/var/www/test-mtdc.weboapps.com/current/log'
 
   include ActionController::Live
   # expose(:file_name) do
@@ -39,6 +41,36 @@ class LogsController < ActionController::Base
     # system("sudo fusermount -u ~/test-mtdc")
     file.close if file
     response.stream.close
+  end
+
+  def index
+    render :json => append
+  end
+
+  def fetch
+    init_log = ""
+    init_wc = 0
+    on SSHKit::Host.new(HOST) do |ssh|
+      within PATH do
+        init_log = capture(:tail, 'testing.log')
+        init_wc = capture(:wc, "-l testing.log | awk '{print $1}'")
+      end
+    end
+    str = init_log.encode('utf-8', :invalid => :replace, :undef => :replace, :replace => '_')
+    render :json => {log: str, wc: init_wc}
+  end
+
+  def append
+    init_log = ""
+    init_wc = params["wc"]
+    on SSHKit::Host.new(HOST) do |ssh|
+      within PATH do
+        init_log = capture("/usr/bin/filereader.py #{init_wc} #{PATH}/testing.log")
+        init_wc = capture(:wc, "-l testing.log | awk '{print $1}'")
+      end
+    end
+    str = init_log.encode('utf-8', :invalid => :replace, :undef => :replace, :replace => '_')
+    render :json => {log: str, wc: init_wc}
   end
 
   def disconnect

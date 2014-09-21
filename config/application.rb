@@ -5,6 +5,8 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+require 'sshkit'
+require 'sshkit/dsl'
 
 module Watchlog
   class Application < Rails::Application
